@@ -1,18 +1,14 @@
 defmodule Tasks do
-  @moduledoc """
-  Documentation for `Tasks`.
-  """
+  def fizz_buzz(n) when n < 1 or n > 100 do
+    n
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Tasks.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def fizz_buzz(n) do
+    case {rem(n, 3) == 0, rem(n, 5) == 0} do
+      {false, true} -> "Buzz"
+      {true, false} -> "Fizz"
+      {true, true} -> "FizzBuzz"
+      {false, false} -> n
+    end
   end
 end
