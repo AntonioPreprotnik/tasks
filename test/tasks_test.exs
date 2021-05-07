@@ -2,17 +2,17 @@ defmodule TaskTsest do
   use ExUnit.Case
   import Tasks
 
-  describe "Nomatch" do
-    test "return no solution" do
-      assert "no solution" == find_first("aabb")
+  describe "testing fibonacci" do
+    test "fib(0)" do
+      assert 0 = fib(0)
     end
 
-    test "return a for wawer" do
-      assert "a" == find_first("wawer")
+    test "fib(1)" do
+      assert 1 = fib(1)
     end
 
-    test "return b for abanox" do
-      assert "b" == find_first("abanox")
+    test "fib(5)" do
+      assert 5 + fib(5)
     end
   end
 end
