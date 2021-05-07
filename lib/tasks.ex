@@ -1,17 +1,9 @@
 defmodule Tasks do
-  def find_first(word) do
-    word = String.to_charlist(word)
-    find_first_helper(word)
-  end
-
-  defp find_first_helper([]), do: "no solution"
-
-  defp find_first_helper([letter | rest]) do
-    if letter in rest do
-      rest = Enum.filter(rest, fn l -> l != letter end)
-      find_first_helper(rest)
-    else
-      <<letter>>
+  def fib(n) do
+    case n do
+      0 -> 0
+      1 -> 1
+      n -> fib(n - 1) + fib(n - 2)
     end
   end
 end
