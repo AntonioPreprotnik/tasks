@@ -1,18 +1,17 @@
 defmodule Tasks do
-  @moduledoc """
-  Documentation for `Tasks`.
-  """
+  def find_first(word) do
+    word = String.to_charlist(word)
+    find_first_helper(word)
+  end
 
-  @doc """
-  Hello world.
+  defp find_first_helper([]), do: "no solution"
 
-  ## Examples
-
-      iex> Tasks.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defp find_first_helper([letter | rest]) do
+    if letter in rest do
+      rest = Enum.filter(rest, fn l -> l != letter end)
+      find_first_helper(rest)
+    else
+      <<letter>>
+    end
   end
 end
