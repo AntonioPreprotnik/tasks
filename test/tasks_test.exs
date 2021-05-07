@@ -12,7 +12,7 @@ defmodule TaskTsest do
     end
 
     test "fib(5)" do
-      assert 5 + fib(5)
+      assert 5 = fib(5)
     end
   end
 end
