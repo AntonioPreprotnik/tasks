@@ -3,12 +3,25 @@ defmodule TasksTest do
   import Tasks
 
   describe "frequencies" do
-    test "ping" do
-      result = frequencies("ping PING PiNg pInG")
+    test "ping pong pung" do
+      result = frequencies("ping PING pong pung PiNg pInG Pang PoNg punG punG")
 
       assert Map.has_key?(result, "ping")
       refute Map.has_key?(result, "PING")
-      assert 4 == Map.get(result, "ping")
+      assert Map.get(result, "ping") == 4
+
+      assert Map.has_key?(result, "pong")
+      refute Map.has_key?(result, "PoNg")
+      assert Map.get(result, "pong") == 2
+
+      assert Map.has_key?(result, "pung")
+      refute Map.has_key?(result, "PUNG")
+      assert Map.get(result, "pung") == 3
+    end
+
+    test "empty" do
+      result = frequencies("")
+      assert result == %{}
     end
   end
 end
