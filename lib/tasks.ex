@@ -1,18 +1,8 @@
 defmodule Tasks do
-  @moduledoc """
-  Documentation for `Tasks`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Tasks.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def frequencies(string) do
+    string
+    |> String.downcase()
+    |> String.split()
+    |> Enum.frequencies()
   end
 end
